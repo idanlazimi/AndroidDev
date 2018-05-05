@@ -16,8 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.CalculatorActivity" >
-        </activity>
+        <activity android:name=".Activities.CalculatorActivity"></activity>
+        <activity
+            android:name=".Activities.BirthdayMainScreen"
+            android:label="@string/title_activity_birthday_main_screen"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

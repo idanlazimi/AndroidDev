@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dell.androiddev.Activities.BirthdayMainScreen;
 import com.example.dell.androiddev.Activities.CalculatorActivity;
 import com.example.dell.androiddev.R;
 
@@ -27,9 +28,11 @@ import static Entities.ActivityItem.ActivityID.CALC;
 public class MainIndexAdapter extends RecyclerView.Adapter<MainIndexAdapter.ViewHolder> {
 
     private ArrayList<ActivityItem> myActivityList;
+    private Context mContext;
 
-    public MainIndexAdapter(ArrayList<ActivityItem> myActivityList) {
+    public MainIndexAdapter(ArrayList<ActivityItem> myActivityList, Context context) {
         this.myActivityList = myActivityList;
+        this.mContext = context;
     }
 
     @Override
@@ -51,17 +54,19 @@ public class MainIndexAdapter extends RecyclerView.Adapter<MainIndexAdapter.View
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Context context = viewHolder.itemView.getContext();
+                //final Context context = viewHolder.itemView.getContext();
                 Intent intent = null;
                 switch(myActivity.getActivityID()) {
                     case CALC:
-                        intent = new Intent(context, CalculatorActivity.class);
+                        intent = new Intent(mContext, CalculatorActivity.class);
                         break;
                     case BDAY:
-                        //TODO: birthday activity shit
+                        intent = new Intent(mContext, BirthdayMainScreen.class);
                         break;
                 }
-                context.startActivity(intent);
+                if(intent != null) {
+                    mContext.startActivity(intent);
+                }
             }
         });
     }

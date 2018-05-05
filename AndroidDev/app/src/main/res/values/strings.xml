@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidDev</string>
+    <string name="title_activity_birthday_main_screen">BirthdayMainScreen</string>
 </resources>
