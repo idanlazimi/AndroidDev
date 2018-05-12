@@ -21,9 +21,20 @@ android {
         targetCompatibility 1.8
         sourceCompatibility 1.8
     }
+    defaultConfig {
+        multiDexEnabled true
+    }
 }
 
 dependencies {
+    compile 'joda-time:joda-time:2.9.4'
+    def room_version = "1.1.0"
+
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
+
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.3'
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'

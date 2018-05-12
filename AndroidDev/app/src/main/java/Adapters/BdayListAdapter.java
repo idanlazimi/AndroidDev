@@ -15,6 +15,7 @@ import com.example.dell.androiddev.Activities.CalculatorActivity;
 import com.example.dell.androiddev.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import Entities.ActivityItem;
 import Entities.BdayItem;
@@ -28,10 +29,10 @@ import static Entities.ActivityItem.ActivityID.CALC;
 
 public class BdayListAdapter extends RecyclerView.Adapter<BdayListAdapter.MyViewHolder> {
 
-    private ArrayList<BdayItem> myActivityList;
+    private List<BdayItem> myActivityList;
     private Context mContext;
 
-    public BdayListAdapter(ArrayList<BdayItem> myActivityList) {
+    public BdayListAdapter(List<BdayItem> myActivityList) {
         this.myActivityList = myActivityList;
 
     }
@@ -75,6 +76,8 @@ public class BdayListAdapter extends RecyclerView.Adapter<BdayListAdapter.MyView
             delta = itemView.findViewById(R.id.bday_item_days_to_bday);
 
             image = itemView.findViewById(R.id.bday_item_pic);
+
+
         }
     }
 }

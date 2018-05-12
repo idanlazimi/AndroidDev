@@ -10,9 +10,12 @@ import android.text.InputFilter;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.dell.androiddev.R;
 
+import Entities.BdayItem;
+import Model.BdayDB;
 import Model.InputFilterMinMax;
 
 public class BirthdayMainScreen extends AppCompatActivity {
@@ -38,6 +41,29 @@ public class BirthdayMainScreen extends AppCompatActivity {
         }});
 
         mAddBday = (Button) findViewById(R.id.bday_menu_add_bday_button);
+        mAddBday.setOnClickListener( (View v) -> {
+
+            //BdayItem bdayItem = new BdayItem();
+
+            if(mNameField.getText() == null || mDay.getText() == null || mMonth.getText() == null || mYear.getText() == null ){
+                Toast.makeText(this, "Invalid parmater/s", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            BdayItem bdayItem = new BdayItem(
+                    mNameField.getText().toString(),
+                    Integer.parseInt(mDay.getText().toString()),
+                    Integer.parseInt(mMonth.getText().toString()),
+                    Integer.parseInt(mYear.getText().toString()),
+                    7,
+                    R.mipmap.boy
+                    );
+
+
+
+            BdayDB.getInstance(this).addBdayItem(bdayItem);
+            Toast.makeText(this, "Added To List", Toast.LENGTH_LONG).show();
+        });
         mDisplayBdayList= (Button) findViewById(R.id.bday_menu_display_bdays_button);
         mDisplayBdayList.setOnClickListener( (View v) -> {
             startActivity(new Intent(this, BirthdayListActivity.class));

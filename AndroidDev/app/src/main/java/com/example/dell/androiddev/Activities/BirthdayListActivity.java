@@ -1,26 +1,25 @@
 package com.example.dell.androiddev.Activities;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import com.example.dell.androiddev.R;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import Adapters.BdayListAdapter;
 import Entities.BdayItem;
+import Model.BdayDB;
+import Model.DataDownloader;
 
-public class BirthdayListActivity extends AppCompatActivity {
+public class BirthdayListActivity extends AppCompatActivity implements DataDownloader.OnFetchedListUpdateListener{
 
-    private ArrayList<BdayItem> mBdayArrayList = new ArrayList<>();
+    private List<BdayItem> mBdayList ;
     private RecyclerView mRecyclerview;
     private BdayListAdapter mBdayListAdapter;
+    private DataDownloader dataDownloader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +30,15 @@ public class BirthdayListActivity extends AppCompatActivity {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         mRecyclerview.setLayoutManager(mLayoutManager);
 
-        mBdayArrayList.add(new BdayItem("John John",22,12,1933,50,R.mipmap.boy));
-        mBdayArrayList.add(new BdayItem("Ha Zilla",30,11,1987,90,R.mipmap.girl));
-
-        mBdayListAdapter = new BdayListAdapter(mBdayArrayList);
-        mRecyclerview.setAdapter(mBdayListAdapter);
+        dataDownloader = new DataDownloader(this,this);
+        dataDownloader.execute();
 
     }
 
+
+    @Override
+    public void OnFetchUpdateUI(List<BdayItem> list) {
+        this.mBdayListAdapter = new BdayListAdapter(list);
+        mRecyclerview.setAdapter(mBdayListAdapter);
+    }
 }
