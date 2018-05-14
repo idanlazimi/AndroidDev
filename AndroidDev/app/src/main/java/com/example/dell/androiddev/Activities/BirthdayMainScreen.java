@@ -53,9 +53,12 @@ public class BirthdayMainScreen extends AppCompatActivity {
                 return;
             }
 
-            int imageResource = R.mipmap.boy;
+            int imageResource = 0;
             if (mSpinner.getSelectedItem().toString() == "Mrs."){
                 imageResource = R.mipmap.girl;
+            }
+            else{
+                imageResource = R.mipmap.boy;
             }
 
 

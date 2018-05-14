@@ -54,7 +54,7 @@ public class BdayListAdapter extends RecyclerView.Adapter<BdayListAdapter.MyView
 
         holder.name.setText(bdayItem.getmName());
         holder.date.setText(bdayItem.getDay() + "/" + bdayItem.getMonth() + "/" + bdayItem.getYear() + "");
-        holder.delta.setText(bdayItem.getDaysToBirthday() + "");
+        //holder.delta.setText(bdayItem.getDaysToBirthday() + "");
         holder.image.setImageResource(bdayItem.getImageResource());
 
     }
