@@ -5,10 +5,6 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-import org.joda.time.DateTime;
-import org.joda.time.Days;
-import org.joda.time.LocalDate;
-import org.joda.time.LocalDateTime;
 
 import java.util.ArrayList;
 import java.util.Calendar;

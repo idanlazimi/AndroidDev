@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         activityItemArrayList.add(new ActivityItem("Calculator","Mobile Calculator",R.mipmap.calculator_1, ActivityItem.ActivityID.CALC));
-        activityItemArrayList.add(new ActivityItem("Birthday Ex","Birthday Shit dick",R.mipmap.gift_1, ActivityItem.ActivityID.BDAY));
+        activityItemArrayList.add(new ActivityItem("Birthday Ex","Birthday List",R.mipmap.gift_1, ActivityItem.ActivityID.BDAY));
         mRecyclerView.setAdapter(new MainIndexAdapter(activityItemArrayList, this));
 
     }

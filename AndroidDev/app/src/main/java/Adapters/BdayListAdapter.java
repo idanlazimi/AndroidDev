@@ -64,6 +64,15 @@ public class BdayListAdapter extends RecyclerView.Adapter<BdayListAdapter.MyView
         return myActivityList.size();
     }
 
+    public void updateList(List<BdayItem> bdayItems){
+        insertNewList(bdayItems);
+    }
+
+    private void insertNewList(List<BdayItem> bdayItems) {
+        this.myActivityList = bdayItems;
+        notifyDataSetChanged();
+    }
+
     public class MyViewHolder extends RecyclerView.ViewHolder{
         public TextView name, date, delta;
         public ImageView image;
@@ -73,7 +82,7 @@ public class BdayListAdapter extends RecyclerView.Adapter<BdayListAdapter.MyView
 
             name = itemView.findViewById(R.id.bday_item_name);
             date = itemView.findViewById(R.id.bday_item_date);
-            delta = itemView.findViewById(R.id.bday_item_days_to_bday);
+            //delta = itemView.findViewById(R.id.bday_item_days_to_bday);
 
             image = itemView.findViewById(R.id.bday_item_pic);
 
